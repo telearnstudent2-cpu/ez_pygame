@@ -1,6 +1,6 @@
 # 🏀 Stephen Curry 籃球接金幣遊戲 (Coin Collector)
 
-這是一個使用 Pygame 開發的簡單趣味遊戲。玩家控制 Stephen Curry，目標是接住掉落的籃球（金幣）來得分。
+這是使用 Pygame 開發的簡單趣味遊戲。玩家控制 Stephen Curry，目標是接住掉落的籃球（金幣）來得分。
 
 ## 🎮 遊戲特色
 
