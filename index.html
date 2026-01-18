@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="籃球收集遊戲 - 操控 Stephen Curry 收集掉落的籃球">
+    <title>籃球收集遊戲 - Basketball Collector</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <h1>🏀 籃球收集遊戲</h1>
+            <div class="score-display">
+                <span class="score-label">分數:</span>
+                <span id="score" class="score-value">0</span>
+            </div>
+        </div>
+        
+        <div class="canvas-wrapper">
+            <canvas id="gameCanvas" width="800" height="600"></canvas>
+            <div id="startScreen" class="overlay-screen">
+                <div class="screen-content">
+                    <h2>籃球收集遊戲</h2>
+                    <p>使用 ← → 鍵控制 Stephen Curry 收集掉落的籃球</p>
+                    <ul class="rules">
+                        <li>收集籃球得 <strong>+10</strong> 分</li>
+                        <li>籃球掉到底部扣 <strong>-5</strong> 分</li>
+                    </ul>
+                    <button id="startBtn" class="game-btn">開始遊戲</button>
+                </div>
+            </div>
+            
+            <div id="pauseScreen" class="overlay-screen hidden">
+                <div class="screen-content">
+                    <h2>遊戲暫停</h2>
+                    <button id="resumeBtn" class="game-btn">繼續遊戲</button>
+                    <button id="restartBtn" class="game-btn secondary">重新開始</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls-info">
+            <div class="control-item">
+                <kbd>←</kbd> <kbd>→</kbd>
+                <span>移動角色</span>
+            </div>
+            <div class="control-item">
+                <kbd>Space</kbd>
+                <span>暫停/繼續</span>
+            </div>
+            <div class="control-item">
+                <kbd>R</kbd>
+                <span>重新開始</span>
+            </div>
+        </div>
+    </div>
+    
+    <script src="game.js"></script>
+</body>
+</html>
