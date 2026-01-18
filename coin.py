@@ -25,9 +25,17 @@ COIN_SPEED = 5
 class Player(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        # 建立玩家外觀 (白色方塊)
-        self.image = pygame.Surface((50, 50))
-        self.image.fill(WHITE)
+        # 建立玩家外觀
+        try:
+            # 嘗試載入圖片
+            self.image = pygame.image.load("stephen_curry.png").convert()
+            # 設定去背顏色 (黑色)
+            self.image.set_colorkey(BLACK)
+            self.image = pygame.transform.scale(self.image, (90, 90))
+        except Exception as e:
+            print(f"無法載入圖片: {e}，使用預設白色方塊")
+            self.image = pygame.Surface((90, 90))
+            self.image.fill(WHITE)
         # 設定位置矩形
         self.rect = self.image.get_rect()
         self.rect.centerx = SCREEN_WIDTH // 2
@@ -44,10 +52,18 @@ class Player(pygame.sprite.Sprite):
 class Coin(pygame.sprite.Sprite):
     def __init__(self):
         super().__init__()
-        # 建立金幣外觀 (金色圓形)
+        # 建立金幣外觀 (籃球)
         self.radius = 15
-        self.image = pygame.Surface((self.radius * 2, self.radius * 2), pygame.SRCALPHA)
-        pygame.draw.circle(self.image, GOLD, (self.radius, self.radius), self.radius)
+        try:
+            self.image = pygame.image.load("basketball.png").convert()
+            # 設定去背顏色 (黑色)
+            self.image.set_colorkey(BLACK)
+            self.image = pygame.transform.scale(self.image, (50, 50))
+        except Exception as e:
+            print(f"無法載入籃球圖片: {e}，使用預設金色圓形")
+            self.image = pygame.Surface((50, 50), pygame.SRCALPHA)
+            pygame.draw.circle(self.image, GOLD, (25, 25), 25)
+            
         # 設定位置矩形
         self.rect = self.image.get_rect()
         self.spawn()
